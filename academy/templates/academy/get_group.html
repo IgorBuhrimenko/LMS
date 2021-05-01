@@ -1,0 +1,17 @@
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content  %}
+Информация про группы
+<div>
+  <p>
+    <br>Название предмета : {{ group.course }}
+    <br>Имя преподователя : {{group.teacher}}
+  <p>Students:
+    {% for student in group.students.all %}
+  <p><b>{{ student.first_name }} {{ student.last_name }} ({{ student.email }})</b>
+    {%endfor%}
+
+{% endblock %}

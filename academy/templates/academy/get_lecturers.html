@@ -1,0 +1,22 @@
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content%}
+<h1> Список студентов  </h1>
+
+{% for lecturer in lecturers %}
+<li>
+    <a href="{% url 'lecturer' lecturer_id=lecturer.lecturer_id %}">
+        {{ lecturer.last_name}}  {{lecturer.first_name }}
+    </a>
+</li>
+{% endfor %}
+
+{% if user.is_superuser %}
+
+
+{% endif %}
+
+
+{% endblock %}

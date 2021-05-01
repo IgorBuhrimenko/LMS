@@ -1,0 +1,20 @@
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content  %}
+Информация про студента
+<div>
+    <a>
+        <br>Фамилия : {{ student.last_name }}
+        <br>Имя : {{ student.first_name }}
+        <br> email : {{ student.email }}
+
+
+    </a>
+
+
+
+</div>
+{% endblock %}

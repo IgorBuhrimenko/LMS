@@ -1,0 +1,6 @@
+[flake8]
+# some comment
+ignore = F401, W292, E265, D400, D100, I201, D105, D103, I101, D101, I100
+max-complexity = 10
+max_line_length = 120
+exclude = tests, setup.py, __init__.py, /migrations

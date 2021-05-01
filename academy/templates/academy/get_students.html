@@ -1,0 +1,22 @@
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content%}
+<h1> Список студентов  </h1>
+
+{% for student in students %}
+<li>
+    <a href="{% url 'student' student_id=student.student_id %}">
+        {{ student.last_name}}  {{student.first_name }}
+    </a>
+</li>
+{% endfor %}
+
+{% if user.is_superuser %}
+
+
+{% endif %}
+
+
+{% endblock %}
