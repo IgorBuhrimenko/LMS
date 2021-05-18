@@ -1,3 +1,6 @@
+{%extends 'academy/base.html'%}
+{%load students_extras%}
+
 {% block title %}
 {{ title }}
 {% endblock %}
@@ -8,15 +11,16 @@
 {% for group in groups %}
 <li>
     <a href="{% url 'group' group_id=group.group_id %}">
-        {{ group.course}} ( {{group.teacher}})
+        {{ group.course | get_count_students }} ( {{group.teacher}})
     </a>
 </li>
 {% endfor %}
 
 {% if user.is_superuser %}
 
+<a class="btn btn-outline-success my-2 my-sm-0" href="{%url 'create_group'%}">Create Group</a>
 
-{% endif %}
+{%endif%}
 
 
 {% endblock %}

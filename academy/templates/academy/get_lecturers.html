@@ -1,9 +1,11 @@
+{%extends 'academy/base.html'%}
+
 {% block title %}
 {{ title }}
 {% endblock %}
 
 {% block content%}
-<h1> Список студентов  </h1>
+<h1> Lecturers  </h1>
 
 {% for lecturer in lecturers %}
 <li>
@@ -14,9 +16,10 @@
 {% endfor %}
 
 {% if user.is_superuser %}
-
-
+ <a class="btn btn-outline-success my-2 my-sm-0" href="{%url 'create_lecturer'%}">Create Lecturer</a>
+{%endif%}
+{% if lecturers.paginator.num_pages != 1 %}
+  {% include "academy/pagination.html" with page=lecturers %}
 {% endif %}
-
 
 {% endblock %}

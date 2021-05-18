@@ -1,0 +1,15 @@
+{%extends 'academy/base.html'%}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{%block content%}
+<h1>New student</h1>
+<form method="POST" enctype="multipart/form-data">
+  {{ form.as_p }}
+  {% csrf_token %}
+  <input type="submit" value="Save"/>
+</form>
+
+{% endblock %}

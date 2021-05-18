@@ -1,0 +1,16 @@
+{%extends 'academy/base.html'%}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content%}
+<h1>Send Message</h1>
+<form method="POST" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Send Message</button>
+</form>
+
+
+{% endblock %}
+

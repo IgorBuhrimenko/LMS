@@ -1,0 +1,16 @@
+{%extends 'academy/base.html'%}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content  %}
+<h1>Edit Group</h1>
+<form method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-outline-primary">Edit</button>
+</form>
+
+{%endblock%}
+

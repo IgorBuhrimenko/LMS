@@ -1,10 +1,13 @@
+{%extends 'academy/base.html'%}
+{%load static%}
 {% block title %}
 {{ title }}
 {% endblock %}
 
 
 {% block content  %}
-Информация про студента
+Информация про учителя
+
 <div>
   <a>
     <br>Фамилия : {{ lecturer.last_name }}
@@ -12,9 +15,16 @@
     <br> email : {{ lecturer.email }}
 
 
+
   </a>
-
-
-
 </div>
+{% if user.is_superuser %}
+  <a href="{% url 'edit_lecturer' pk=lecturer.lecturer_id %}">
+    <button type="submit" class="btn btn-outline-primary">Edit</button>
+
+  <a href="{% url 'delete_lecturer' pk=lecturer.lecturer_id %}">
+    <button type="submit" class="btn btn-outline-primary">Delete</button>
+{%endif%}
+
 {% endblock %}
+

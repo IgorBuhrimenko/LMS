@@ -1,3 +1,5 @@
+{%extends 'academy/base.html'%}
+
 {% block title %}
 {{ title }}
 {% endblock %}
@@ -13,5 +15,22 @@
     {% for student in group.students.all %}
   <p><b>{{ student.first_name }} {{ student.last_name }} ({{ student.email }})</b>
     {%endfor%}
+  </p>
+</div>
+{% if user.is_superuser %}
+<a href="{% url 'edit_group' pk=group.group_id %}">
+  <button type="submit" class="btn btn-outline-primary">Edit</button>
+</a>
+<a href="{% url 'delete_group' pk=group.group_id %}">
+  <button type="submit" class="btn btn-outline-primary">Delete</button>
+</a>
+
+{%endif%}
 
 {% endblock %}
+
+{% if user.is_superuser %}
+
+
+
+{%endif%}

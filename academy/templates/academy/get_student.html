@@ -1,3 +1,6 @@
+{%extends 'academy/base.html'%}
+{%load static%}
+
 {% block title %}
 {{ title }}
 {% endblock %}
@@ -10,11 +13,21 @@
         <br>Фамилия : {{ student.last_name }}
         <br>Имя : {{ student.first_name }}
         <br> email : {{ student.email }}
+<!--        <img class="cover" src="{{student.cover.url}}">-->
 
 
     </a>
-
-
-
 </div>
+{% if user.is_superuser %}
+
+    <a href="{% url 'edit_student' pk=student.student_id %}">
+        <button type="submit" class="btn btn-outline-primary">Edit</button>
+    </a>
+
+    <a href="{% url 'delete_student' pk=student.student_id %}">
+        <button type="submit" class="btn btn-outline-primary">Delete</button>
+{%endif%}
+
+
+
 {% endblock %}
